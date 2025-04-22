@@ -1,0 +1,583 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{946F48DA-FC5C-42F6-8D09-949CE1B77F29}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>DRM_X_4_AutomaticEncryptionTool.My.MyApplication</StartupObject>
+    <RootNamespace>DRM_X_4_AutomaticEncryptionTool</RootNamespace>
+    <AssemblyName>DRM-X 4.0 Auto-Encryption</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>DRM-X 4.0 Auto-Encryption.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>DRM-X 4.0 Auto-Encryption.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>drmxIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.119.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.119.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.EF6.1.0.119.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.119.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.Linq.1.0.119.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EncryptionForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Connected Services\DRMX_CN\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\DRMX_EN\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ProcessExtensions.vb" />
+    <Compile Include="SecurityHelper.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.manifest" />
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.AddLicenseProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.AddLicenseProfileToGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.AddNewAdminResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.AddNewUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.AddRightResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.AddRightToLicenseProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.AddUserGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.aLogin2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.aLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.ArrayOfAnyType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.CheckUserExistsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.CheckUserIsRevokedByLicenseProfileIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.CheckUserIsRevokedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.DeleteLicenseProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.DeleteRightResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.DeleteUserAllBindResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.DeleteUserGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.DeleteUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.GetBlocklistOfRightResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.getLicenseForHHMeetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.GetLicenseProfileDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.GetLicenseProfileIDByEncryptIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.getLicenseRemoteToTableWithVersionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.getLicenseRemoteToTableWithVersionWithMacResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.GetPackagerParamsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.GetReportDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.GetRightsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.GetRightsReturnStringResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.GetUserDetailsByUserIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.GetUserDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.GetUserGroupDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.GroupDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.ListLicenseProfilesAsStringResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.ListLicenseProfilesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.ListReportsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.ListRightsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.ListUserGroupsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.ListUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.PEnhancedVFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.RemoveLicenseProfilesFromGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.RemoveRightsFromLicenseProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.ReportDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.RevokeEndUserLicenseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.RightsDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.SendEmailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.UpdateAdminInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.UpdateAdminPwdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.UpdateLicenseProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.UpdateRightResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.UpdateRightWithDisableVirtualMachineResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.UpdateRightWithPrintCountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.UpdateUserGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.UpdateUserPasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.UpdateUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.UpdateUserRevokeSeedIDsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.UserAddMoneyByUserNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.UserAddMoneyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.UserDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.UserLoginBySQuestionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.UserLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\DRM_X_4_AutomaticEncryptionTool.DRMX_CN.WebServiceLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_CN\haihaisoftlicenseservice.wsdl" />
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.AddLicenseProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.AddLicenseProfileToGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.AddNewAdminResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.AddNewUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.AddRightResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.AddRightToLicenseProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.AddUserGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.aLogin2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.aLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.ArrayOfAnyType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.CheckUserExistsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.CheckUserIsRevokedByLicenseProfileIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.CheckUserIsRevokedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.DeleteLicenseProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.DeleteRightResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.DeleteUserAllBindResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.DeleteUserGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.DeleteUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.GetBlocklistOfRightResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.getLicenseForHHMeetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.GetLicenseProfileDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.GetLicenseProfileIDByEncryptIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.getLicenseRemoteToTableWithVersionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.getLicenseRemoteToTableWithVersionWithMacResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.GetPackagerParamsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.GetReportDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.GetRightsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.GetRightsReturnStringResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.GetUserDetailsByUserIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.GetUserDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.GetUserGroupDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.GroupDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.ListLicenseProfilesAsStringResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.ListLicenseProfilesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.ListReportsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.ListRightsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.ListUserGroupsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.ListUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.PEnhancedVFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.RemoveLicenseProfilesFromGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.RemoveRightsFromLicenseProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.ReportDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.RevokeEndUserLicenseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.RightsDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.SendEmailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.UpdateAdminInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.UpdateAdminPwdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.UpdateLicenseProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.UpdateRightResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.UpdateRightWithDisableVirtualMachineResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.UpdateRightWithPrintCountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.UpdateUserGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.UpdateUserPasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.UpdateUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.UpdateUserRevokeSeedIDsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.UserAddMoneyByUserNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.UserAddMoneyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.UserDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.UserLoginBySQuestionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.UserLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\DRM_X_4_AutomaticEncryptionTool.DRMX_EN.WebServiceLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DRMX_EN\haihaisoftlicenseservice.wsdl" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\DRMX_CN\" />
+    <WCFMetadataStorage Include="Connected Services\DRMX_EN\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DRMX_EN\haihaisoftlicenseservice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DRMX_EN\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DRMX_EN\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DRMX_EN\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DRMX_CN\haihaisoftlicenseservice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DRMX_CN\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DRMX_CN\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DRMX_CN\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="drmxIcon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+</Project>

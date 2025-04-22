@@ -1,0 +1,2865 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService">
+      <s:element name="UserLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserExists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUserExistsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PEnhancedVFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PEnhancedVFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PEnhancedVFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserLoginBySQuestion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SQuestion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SAnswer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserLoginBySQuestionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginBySQuestionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserDetailsResult" type="tns:UserDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RegisterDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UpdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsApproved" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsLockedOut" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsSuperUser" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdminID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Money" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="SQuestion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SAnswer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CustomerID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BindNum" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserDetailsByUserID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserDetailsByUserIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserDetailsByUserIDResult" type="tns:UserDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportDetailsResult" type="tns:ReportDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReportDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MonthlyFee" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LicenseFee" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalLicenses" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalCost" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CostToday" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CostYesterday" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CostThisMonth" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CostLastMonth" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountToday" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountYesterday" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountThisMonth" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountLastMonth" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date1" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date2" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevokeEndUserLicense">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IsRevoke" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevokeEndUserLicenseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RevokeEndUserLicenseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserIsRevoked">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserIsRevokedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUserIsRevokedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserIsRevokedByLicenseProfileID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LicenseProfileID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserIsRevokedByLicenseProfileIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUserIsRevokedByLicenseProfileIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteUserAllBind">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteUserAllBindResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteUserAllBindResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLicenseRemoteToTableWithVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RightsID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserFullName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Platform" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContentType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLicenseRemoteToTableWithVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLicenseRemoteToTableWithVersionResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLicenseRemoteToTableWithVersionWithMac">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RightsID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserFullName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Platform" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContentType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mac" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLicenseRemoteToTableWithVersionWithMacResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLicenseRemoteToTableWithVersionWithMacResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLicenseForHHMeet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientInfo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RightsID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserFullName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Platform" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContentType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLicenseForHHMeetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLicenseForHHMeetResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLicenseProfileDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="YourProductID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLicenseProfileDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLicenseProfileDetailsResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="YourProductID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLicenseProfileIDByEncryptID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EncryptedProfileID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLicenseProfileIDByEncryptIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLicenseProfileIDByEncryptIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteLicenseProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProfileID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteLicenseProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteLicenseProfileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserFullName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityQuestion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityAnswer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Money" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BindNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IsApproved" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IsLockedOut" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddNewUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserFullName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityQuestion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityAnswer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BindNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IsApproved" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IsLockedOut" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateUserPasswordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserRevokeSeedIDs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RevokeSeedIDs" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserRevokeSeedIDsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateUserRevokeSeedIDsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP2" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RequireLogin" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="BindNum" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateUserGroupResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserGroupDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserGroupDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserGroupDetailsResult" type="tns:GroupDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GroupDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdminID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequireLogin" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CustomerID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BindNum" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteUserGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteUserGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteUserGroupResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLicenseProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="YourProductID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityVersion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLicenseProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateLicenseProfileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserAddMoney">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Money" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserEmail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserAddMoneyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserAddMoneyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserAddMoneyByUserName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Money" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserAddMoneyByUserNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserAddMoneyByUserNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRight">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RightsID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PlayCount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BeginDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpirationDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpirationAfterFirstUse" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RightsPrice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AllowPrint" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AllowClipBoard" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AllowDoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EnableWatermark" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WatermarkText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WatermarkArea" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RandomChangeArea" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RandomFrquency" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EnableBlacklist" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EnableWhitelist" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpireTimeUnit" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PreviewTime" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="PreviewTimeUnit" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PreviewPage" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateRightResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRightWithDisableVirtualMachine">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RightsID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PlayCount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BeginDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpirationDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpirationAfterFirstUse" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RightsPrice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AllowPrint" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AllowClipBoard" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AllowDoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EnableWatermark" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WatermarkText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WatermarkArea" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RandomChangeArea" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RandomFrquency" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EnableBlacklist" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EnableWhitelist" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpireTimeUnit" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PreviewTime" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="PreviewTimeUnit" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PreviewPage" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DisableVirtualMachine" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRightWithDisableVirtualMachineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateRightWithDisableVirtualMachineResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRightWithPrintCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RightsID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PlayCount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BeginDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpirationDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpirationAfterFirstUse" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RightsPrice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AllowPrint" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AllowClipBoard" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AllowDoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EnableWatermark" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WatermarkText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WatermarkArea" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RandomChangeArea" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RandomFrquency" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EnableBlacklist" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EnableWhitelist" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PrintCount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DisableVirtualPrinter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpireTimeUnit" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PreviewTime" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="PreviewTimeUnit" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PreviewPage" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRightWithPrintCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateRightWithPrintCountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddLicenseProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="YourProductID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ForceInternet" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddLicenseProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddLicenseProfileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddLicenseProfileToGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LicenseProfileID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddLicenseProfileToGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddLicenseProfileToGroupResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveLicenseProfilesFromGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveLicenseProfilesFromGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveLicenseProfilesFromGroupResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddRight">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PlayCount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BeginDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpirationDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpirationAfterFirstUse" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RightsPrice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AllowPrint" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AllowClipBoard" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AllowDoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EnableWatermark" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WatermarkText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WatermarkArea" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RandomChangeArea" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RandomFrquency" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EnableBlacklist" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EnableWhitelist" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpireTimeUnit" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PreviewTime" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="PreviewTimeUnit" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PreviewPage" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddRightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddRightResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddRightToLicenseProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RightID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="LicenseProfileID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddRightToLicenseProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddRightToLicenseProfileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveRightsFromLicenseProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LicenseProfileID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveRightsFromLicenseProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveRightsFromLicenseProfileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="aLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="aLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="aLoginResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="aLogin2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="aLogin2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="aLogin2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebServiceLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebServiceLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WebServiceLoginResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IP1" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="IP2" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="RequireLogin" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="BindNum" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddUserGroupResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListRights">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LicenseProfileID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListRightsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListRightsResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LicenseProfileDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LicenseProfileID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LicenseProfileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KeyID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Individualization" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="YourSeedID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListUserGroups">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListUserGroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListUserGroupsResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListLicenseProfiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListLicenseProfilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListLicenseProfilesResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListLicenseProfilesAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListLicenseProfilesAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListLicenseProfilesAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageNo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SortField" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SortOrder" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TotalPages" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TotalRows" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListUsersResult" />
+            <s:element minOccurs="1" maxOccurs="1" name="TotalPages" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TotalRows" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListReports">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BeginDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageNo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SortField" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SortOrder" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TotalPages" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TotalRows" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListReportsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListReportsResult" />
+            <s:element minOccurs="1" maxOccurs="1" name="TotalPages" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TotalRows" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRights">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RightsID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RightsDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RightsID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RightsDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowPlayOnPc" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Playcount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowBurnToCD" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BurnToCDCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowBackupRestore" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BeginDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpirationDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpirationAfterFirstUse" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpirationOnStore" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeleteOnClockRollBack" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DisableOnClockRollBack" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowTransferToNonSDMI" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowTransferToSDMI" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransferCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PMRights" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PMExpirationDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="GracePeriod" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowCopy" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CopyCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowPrint" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowClipBoard" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowDoc" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnableWatermark" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="WatermarkText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WatermarkArea" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RandomChangeArea" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RandomFrequency" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FontSize" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BlockScreen2" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnableWhitelist" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpireTimeUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PreviewTime" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PreviewTimeUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PreviewPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WatermarkPixelMode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WatermarkAlpha" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WatermarkSpeed" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRightsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRightsResult" type="tns:RightsDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRightsReturnString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RightsID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRightsReturnStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRightsReturnStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBlocklistOfRight">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RightsID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBlocklistOfRightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBlocklistOfRightResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteRight">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RightsID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteRightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteRightResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendEmailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewAdmin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fullName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SecEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RegisterDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="AffiID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Paypal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AdminType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SQuestion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SAnswer" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FeeID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="GUID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AffiTotal" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="AffiLimit" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="AffiRate" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeZone" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewAdminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddNewAdminResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAdminInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SecEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SQuestion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SAnswer" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAdminInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAdminInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAdminPwd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAdminPwdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAdminPwdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackagerParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAuthStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProfileID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackagerParamsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPackagerParamsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UserLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:UserLogin" />
+  </wsdl:message>
+  <wsdl:message name="UserLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:UserLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUserExists" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUserExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PEnhancedVFileSoapIn">
+    <wsdl:part name="parameters" element="tns:PEnhancedVFile" />
+  </wsdl:message>
+  <wsdl:message name="PEnhancedVFileSoapOut">
+    <wsdl:part name="parameters" element="tns:PEnhancedVFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserLoginBySQuestionSoapIn">
+    <wsdl:part name="parameters" element="tns:UserLoginBySQuestion" />
+  </wsdl:message>
+  <wsdl:message name="UserLoginBySQuestionSoapOut">
+    <wsdl:part name="parameters" element="tns:UserLoginBySQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDetailsByUserIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserDetailsByUserID" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDetailsByUserIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserDetailsByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="RevokeEndUserLicenseSoapIn">
+    <wsdl:part name="parameters" element="tns:RevokeEndUserLicense" />
+  </wsdl:message>
+  <wsdl:message name="RevokeEndUserLicenseSoapOut">
+    <wsdl:part name="parameters" element="tns:RevokeEndUserLicenseResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserIsRevokedSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUserIsRevoked" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserIsRevokedSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUserIsRevokedResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserIsRevokedByLicenseProfileIDSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUserIsRevokedByLicenseProfileID" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserIsRevokedByLicenseProfileIDSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUserIsRevokedByLicenseProfileIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserAllBindSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteUserAllBind" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserAllBindSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteUserAllBindResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLicenseRemoteToTableWithVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:getLicenseRemoteToTableWithVersion" />
+  </wsdl:message>
+  <wsdl:message name="getLicenseRemoteToTableWithVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:getLicenseRemoteToTableWithVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLicenseRemoteToTableWithVersionWithMacSoapIn">
+    <wsdl:part name="parameters" element="tns:getLicenseRemoteToTableWithVersionWithMac" />
+  </wsdl:message>
+  <wsdl:message name="getLicenseRemoteToTableWithVersionWithMacSoapOut">
+    <wsdl:part name="parameters" element="tns:getLicenseRemoteToTableWithVersionWithMacResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLicenseForHHMeetSoapIn">
+    <wsdl:part name="parameters" element="tns:getLicenseForHHMeet" />
+  </wsdl:message>
+  <wsdl:message name="getLicenseForHHMeetSoapOut">
+    <wsdl:part name="parameters" element="tns:getLicenseForHHMeetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLicenseProfileDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLicenseProfileDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetLicenseProfileDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLicenseProfileDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLicenseProfileIDByEncryptIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLicenseProfileIDByEncryptID" />
+  </wsdl:message>
+  <wsdl:message name="GetLicenseProfileIDByEncryptIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLicenseProfileIDByEncryptIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteLicenseProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteLicenseProfile" />
+  </wsdl:message>
+  <wsdl:message name="DeleteLicenseProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteLicenseProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNewUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNewUser" />
+  </wsdl:message>
+  <wsdl:message name="AddNewUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNewUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserPassword" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserRevokeSeedIDsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserRevokeSeedIDs" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserRevokeSeedIDsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserRevokeSeedIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserGroup" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserGroupDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserGroupDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteUserGroup" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteUserGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLicenseProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateLicenseProfile" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLicenseProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateLicenseProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserAddMoneySoapIn">
+    <wsdl:part name="parameters" element="tns:UserAddMoney" />
+  </wsdl:message>
+  <wsdl:message name="UserAddMoneySoapOut">
+    <wsdl:part name="parameters" element="tns:UserAddMoneyResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserAddMoneyByUserNameSoapIn">
+    <wsdl:part name="parameters" element="tns:UserAddMoneyByUserName" />
+  </wsdl:message>
+  <wsdl:message name="UserAddMoneyByUserNameSoapOut">
+    <wsdl:part name="parameters" element="tns:UserAddMoneyByUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRightSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateRight" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRightSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRightWithDisableVirtualMachineSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateRightWithDisableVirtualMachine" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRightWithDisableVirtualMachineSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateRightWithDisableVirtualMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRightWithPrintCountSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateRightWithPrintCount" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRightWithPrintCountSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateRightWithPrintCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddLicenseProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:AddLicenseProfile" />
+  </wsdl:message>
+  <wsdl:message name="AddLicenseProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:AddLicenseProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddLicenseProfileToGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:AddLicenseProfileToGroup" />
+  </wsdl:message>
+  <wsdl:message name="AddLicenseProfileToGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:AddLicenseProfileToGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveLicenseProfilesFromGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveLicenseProfilesFromGroup" />
+  </wsdl:message>
+  <wsdl:message name="RemoveLicenseProfilesFromGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveLicenseProfilesFromGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddRightSoapIn">
+    <wsdl:part name="parameters" element="tns:AddRight" />
+  </wsdl:message>
+  <wsdl:message name="AddRightSoapOut">
+    <wsdl:part name="parameters" element="tns:AddRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddRightToLicenseProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:AddRightToLicenseProfile" />
+  </wsdl:message>
+  <wsdl:message name="AddRightToLicenseProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:AddRightToLicenseProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveRightsFromLicenseProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveRightsFromLicenseProfile" />
+  </wsdl:message>
+  <wsdl:message name="RemoveRightsFromLicenseProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveRightsFromLicenseProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="aLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:aLogin" />
+  </wsdl:message>
+  <wsdl:message name="aLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:aLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="aLogin2SoapIn">
+    <wsdl:part name="parameters" element="tns:aLogin2" />
+  </wsdl:message>
+  <wsdl:message name="aLogin2SoapOut">
+    <wsdl:part name="parameters" element="tns:aLogin2Response" />
+  </wsdl:message>
+  <wsdl:message name="WebServiceLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:WebServiceLogin" />
+  </wsdl:message>
+  <wsdl:message name="WebServiceLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:WebServiceLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddUserGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:AddUserGroup" />
+  </wsdl:message>
+  <wsdl:message name="AddUserGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:AddUserGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListRightsSoapIn">
+    <wsdl:part name="parameters" element="tns:ListRights" />
+  </wsdl:message>
+  <wsdl:message name="ListRightsSoapOut">
+    <wsdl:part name="parameters" element="tns:ListRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListUserGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:ListUserGroups" />
+  </wsdl:message>
+  <wsdl:message name="ListUserGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:ListUserGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListLicenseProfilesSoapIn">
+    <wsdl:part name="parameters" element="tns:ListLicenseProfiles" />
+  </wsdl:message>
+  <wsdl:message name="ListLicenseProfilesSoapOut">
+    <wsdl:part name="parameters" element="tns:ListLicenseProfilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListLicenseProfilesAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:ListLicenseProfilesAsString" />
+  </wsdl:message>
+  <wsdl:message name="ListLicenseProfilesAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:ListLicenseProfilesAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:ListUsers" />
+  </wsdl:message>
+  <wsdl:message name="ListUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:ListUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListReportsSoapIn">
+    <wsdl:part name="parameters" element="tns:ListReports" />
+  </wsdl:message>
+  <wsdl:message name="ListReportsSoapOut">
+    <wsdl:part name="parameters" element="tns:ListReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRightsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRights" />
+  </wsdl:message>
+  <wsdl:message name="GetRightsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRightsReturnStringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRightsReturnString" />
+  </wsdl:message>
+  <wsdl:message name="GetRightsReturnStringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRightsReturnStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBlocklistOfRightSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBlocklistOfRight" />
+  </wsdl:message>
+  <wsdl:message name="GetBlocklistOfRightSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBlocklistOfRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRightSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteRight" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRightSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendEmail" />
+  </wsdl:message>
+  <wsdl:message name="SendEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNewAdminSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNewAdmin" />
+  </wsdl:message>
+  <wsdl:message name="AddNewAdminSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNewAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAdminInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAdminInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAdminInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAdminInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAdminPwdSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAdminPwd" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAdminPwdSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAdminPwdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPackagerParamsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPackagerParams" />
+  </wsdl:message>
+  <wsdl:message name="GetPackagerParamsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPackagerParamsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="HaihaisoftLicenseServiceSoap">
+    <wsdl:operation name="UserLogin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This function helps you check if End User can login. If end user login successfully, it will return UserID value. Otherwise, it will return 0.</wsdl:documentation>
+      <wsdl:input message="tns:UserLoginSoapIn" />
+      <wsdl:output message="tns:UserLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserExists">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This function helps you check if End User exists. If end user exists, it will return True, otherwise return False.</wsdl:documentation>
+      <wsdl:input message="tns:CheckUserExistsSoapIn" />
+      <wsdl:output message="tns:CheckUserExistsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PEnhancedVFile">
+      <wsdl:input message="tns:PEnhancedVFileSoapIn" />
+      <wsdl:output message="tns:PEnhancedVFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLoginBySQuestion">
+      <wsdl:input message="tns:UserLoginBySQuestionSoapIn" />
+      <wsdl:output message="tns:UserLoginBySQuestionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <wsdl:input message="tns:GetUserDetailsSoapIn" />
+      <wsdl:output message="tns:GetUserDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetailsByUserID">
+      <wsdl:input message="tns:GetUserDetailsByUserIDSoapIn" />
+      <wsdl:output message="tns:GetUserDetailsByUserIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetails">
+      <wsdl:input message="tns:GetReportDetailsSoapIn" />
+      <wsdl:output message="tns:GetReportDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This function deletes your End User Account in DRM-X platform. If delete success, it will return 1</wsdl:documentation>
+      <wsdl:input message="tns:DeleteUserSoapIn" />
+      <wsdl:output message="tns:DeleteUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RevokeEndUserLicense">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This function revokes your End User's licenses in DRM-X platform. If revoke success, it will return 1</wsdl:documentation>
+      <wsdl:input message="tns:RevokeEndUserLicenseSoapIn" />
+      <wsdl:output message="tns:RevokeEndUserLicenseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserIsRevoked">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check if the user's License Revoke setting if it is revoked. If it's revoked, it will return 1, otherwise return 0.</wsdl:documentation>
+      <wsdl:input message="tns:CheckUserIsRevokedSoapIn" />
+      <wsdl:output message="tns:CheckUserIsRevokedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserIsRevokedByLicenseProfileID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check if the user's license has been revoked by License Profile ID. If it has been revoked, there will be data recorded in User's revocation list, it will return 1, otherwise return 0.</wsdl:documentation>
+      <wsdl:input message="tns:CheckUserIsRevokedByLicenseProfileIDSoapIn" />
+      <wsdl:output message="tns:CheckUserIsRevokedByLicenseProfileIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserAllBind">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This function deletes your End User's all Hardware Bind info in DRM-X 4.0 platform. If delete success, it will return 1</wsdl:documentation>
+      <wsdl:input message="tns:DeleteUserAllBindSoapIn" />
+      <wsdl:output message="tns:DeleteUserAllBindSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLicenseRemoteToTableWithVersion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get License for Xvast</wsdl:documentation>
+      <wsdl:input message="tns:getLicenseRemoteToTableWithVersionSoapIn" />
+      <wsdl:output message="tns:getLicenseRemoteToTableWithVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLicenseRemoteToTableWithVersionWithMac">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get license for Xvast, added get mac address</wsdl:documentation>
+      <wsdl:input message="tns:getLicenseRemoteToTableWithVersionWithMacSoapIn" />
+      <wsdl:output message="tns:getLicenseRemoteToTableWithVersionWithMacSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLicenseForHHMeet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get License value for HHMeet</wsdl:documentation>
+      <wsdl:input message="tns:getLicenseForHHMeetSoapIn" />
+      <wsdl:output message="tns:getLicenseForHHMeetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseProfileDetails">
+      <wsdl:input message="tns:GetLicenseProfileDetailsSoapIn" />
+      <wsdl:output message="tns:GetLicenseProfileDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseProfileIDByEncryptID">
+      <wsdl:input message="tns:GetLicenseProfileIDByEncryptIDSoapIn" />
+      <wsdl:output message="tns:GetLicenseProfileIDByEncryptIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLicenseProfile">
+      <wsdl:input message="tns:DeleteLicenseProfileSoapIn" />
+      <wsdl:output message="tns:DeleteLicenseProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewUser">
+      <wsdl:input message="tns:AddNewUserSoapIn" />
+      <wsdl:output message="tns:AddNewUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This function will update DRM-X user information. The key parameter is UserLoginName. It identifies user by UserLoginName.</wsdl:documentation>
+      <wsdl:input message="tns:UpdateUserSoapIn" />
+      <wsdl:output message="tns:UpdateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This function will update DRM-X user password. The key parameter is UserLoginName. It identifies user by UserLoginName.</wsdl:documentation>
+      <wsdl:input message="tns:UpdateUserPasswordSoapIn" />
+      <wsdl:output message="tns:UpdateUserPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserRevokeSeedIDs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This function will update DRM-X user RevokeSeedIDs. The key parameter is UserLoginName. It identifies user by UserLoginName.</wsdl:documentation>
+      <wsdl:input message="tns:UpdateUserRevokeSeedIDsSoapIn" />
+      <wsdl:output message="tns:UpdateUserRevokeSeedIDsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserGroup">
+      <wsdl:input message="tns:UpdateUserGroupSoapIn" />
+      <wsdl:output message="tns:UpdateUserGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroupDetails">
+      <wsdl:input message="tns:GetUserGroupDetailsSoapIn" />
+      <wsdl:output message="tns:GetUserGroupDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserGroup">
+      <wsdl:input message="tns:DeleteUserGroupSoapIn" />
+      <wsdl:output message="tns:DeleteUserGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLicenseProfile">
+      <wsdl:input message="tns:UpdateLicenseProfileSoapIn" />
+      <wsdl:output message="tns:UpdateLicenseProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserAddMoney">
+      <wsdl:input message="tns:UserAddMoneySoapIn" />
+      <wsdl:output message="tns:UserAddMoneySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserAddMoneyByUserName">
+      <wsdl:input message="tns:UserAddMoneyByUserNameSoapIn" />
+      <wsdl:output message="tns:UserAddMoneyByUserNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRight">
+      <wsdl:input message="tns:UpdateRightSoapIn" />
+      <wsdl:output message="tns:UpdateRightSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRightWithDisableVirtualMachine">
+      <wsdl:input message="tns:UpdateRightWithDisableVirtualMachineSoapIn" />
+      <wsdl:output message="tns:UpdateRightWithDisableVirtualMachineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRightWithPrintCount">
+      <wsdl:input message="tns:UpdateRightWithPrintCountSoapIn" />
+      <wsdl:output message="tns:UpdateRightWithPrintCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLicenseProfile">
+      <wsdl:input message="tns:AddLicenseProfileSoapIn" />
+      <wsdl:output message="tns:AddLicenseProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLicenseProfileToGroup">
+      <wsdl:input message="tns:AddLicenseProfileToGroupSoapIn" />
+      <wsdl:output message="tns:AddLicenseProfileToGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLicenseProfilesFromGroup">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This function remove all License Profiles of your specified User Group. It won't delete the License Profiles, just remove the License Profiles relations with your specified User Group.</wsdl:documentation>
+      <wsdl:input message="tns:RemoveLicenseProfilesFromGroupSoapIn" />
+      <wsdl:output message="tns:RemoveLicenseProfilesFromGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRight">
+      <wsdl:input message="tns:AddRightSoapIn" />
+      <wsdl:output message="tns:AddRightSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRightToLicenseProfile">
+      <wsdl:input message="tns:AddRightToLicenseProfileSoapIn" />
+      <wsdl:output message="tns:AddRightToLicenseProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRightsFromLicenseProfile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This function removes all Rights of your specified License Profile. It won't delete the Rights, just remove the Rights relations with your specified License Profile.</wsdl:documentation>
+      <wsdl:input message="tns:RemoveRightsFromLicenseProfileSoapIn" />
+      <wsdl:output message="tns:RemoveRightsFromLicenseProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="aLogin">
+      <wsdl:input message="tns:aLoginSoapIn" />
+      <wsdl:output message="tns:aLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="aLogin2">
+      <wsdl:input message="tns:aLogin2SoapIn" />
+      <wsdl:output message="tns:aLogin2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebServiceLogin">
+      <wsdl:input message="tns:WebServiceLoginSoapIn" />
+      <wsdl:output message="tns:WebServiceLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserGroup">
+      <wsdl:input message="tns:AddUserGroupSoapIn" />
+      <wsdl:output message="tns:AddUserGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListRights">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This function lists your Rights. If you want to list all Rights, please set value -1 to LicenseProfileID. </wsdl:documentation>
+      <wsdl:input message="tns:ListRightsSoapIn" />
+      <wsdl:output message="tns:ListRightsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListUserGroups">
+      <wsdl:input message="tns:ListUserGroupsSoapIn" />
+      <wsdl:output message="tns:ListUserGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListLicenseProfiles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This function lists your License Profiles. If you want to list all License Profiles, please set value -1 to GroupID. </wsdl:documentation>
+      <wsdl:input message="tns:ListLicenseProfilesSoapIn" />
+      <wsdl:output message="tns:ListLicenseProfilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListLicenseProfilesAsString">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This function lists your License Profiles. If you want to list all License Profiles, please set value -1 to GroupID. Sample Return LicenseProfileID||LicenseProfileName;;. Example return string:32334||LicenseProfileName;;32335||LicenseProfileName2;;</wsdl:documentation>
+      <wsdl:input message="tns:ListLicenseProfilesAsStringSoapIn" />
+      <wsdl:output message="tns:ListLicenseProfilesAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListUsers">
+      <wsdl:input message="tns:ListUsersSoapIn" />
+      <wsdl:output message="tns:ListUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListReports">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This function lists your license report. The BeginDate and EndDate input format must be YYYY-MM-DD. For example, BeginDate=2009-3-29</wsdl:documentation>
+      <wsdl:input message="tns:ListReportsSoapIn" />
+      <wsdl:output message="tns:ListReportsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRights">
+      <wsdl:input message="tns:GetRightsSoapIn" />
+      <wsdl:output message="tns:GetRightsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRightsReturnString">
+      <wsdl:input message="tns:GetRightsReturnStringSoapIn" />
+      <wsdl:output message="tns:GetRightsReturnStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBlocklistOfRight">
+      <wsdl:input message="tns:GetBlocklistOfRightSoapIn" />
+      <wsdl:output message="tns:GetBlocklistOfRightSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRight">
+      <wsdl:input message="tns:DeleteRightSoapIn" />
+      <wsdl:output message="tns:DeleteRightSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <wsdl:input message="tns:SendEmailSoapIn" />
+      <wsdl:output message="tns:SendEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAdmin">
+      <wsdl:input message="tns:AddNewAdminSoapIn" />
+      <wsdl:output message="tns:AddNewAdminSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdminInfo">
+      <wsdl:input message="tns:UpdateAdminInfoSoapIn" />
+      <wsdl:output message="tns:UpdateAdminInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdminPwd">
+      <wsdl:input message="tns:UpdateAdminPwdSoapIn" />
+      <wsdl:output message="tns:UpdateAdminPwdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackagerParams">
+      <wsdl:input message="tns:GetPackagerParamsSoapIn" />
+      <wsdl:output message="tns:GetPackagerParamsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HaihaisoftLicenseServiceSoap" type="tns:HaihaisoftLicenseServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UserLogin">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UserLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserExists">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/CheckUserExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PEnhancedVFile">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/PEnhancedVFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLoginBySQuestion">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UserLoginBySQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetailsByUserID">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetUserDetailsByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetails">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetReportDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevokeEndUserLicense">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/RevokeEndUserLicense" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserIsRevoked">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/CheckUserIsRevoked" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserIsRevokedByLicenseProfileID">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/CheckUserIsRevokedByLicenseProfileID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserAllBind">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/DeleteUserAllBind" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLicenseRemoteToTableWithVersion">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/getLicenseRemoteToTableWithVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLicenseRemoteToTableWithVersionWithMac">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/getLicenseRemoteToTableWithVersionWithMac" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLicenseForHHMeet">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/getLicenseForHHMeet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseProfileDetails">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetLicenseProfileDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseProfileIDByEncryptID">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetLicenseProfileIDByEncryptID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLicenseProfile">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/DeleteLicenseProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewUser">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/AddNewUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPassword">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateUserPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserRevokeSeedIDs">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateUserRevokeSeedIDs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserGroup">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateUserGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroupDetails">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetUserGroupDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserGroup">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/DeleteUserGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLicenseProfile">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateLicenseProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserAddMoney">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UserAddMoney" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserAddMoneyByUserName">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UserAddMoneyByUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRight">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateRight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRightWithDisableVirtualMachine">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateRightWithDisableVirtualMachine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRightWithPrintCount">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateRightWithPrintCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLicenseProfile">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/AddLicenseProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLicenseProfileToGroup">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/AddLicenseProfileToGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLicenseProfilesFromGroup">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/RemoveLicenseProfilesFromGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRight">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/AddRight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRightToLicenseProfile">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/AddRightToLicenseProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRightsFromLicenseProfile">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/RemoveRightsFromLicenseProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="aLogin">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/aLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="aLogin2">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/aLogin2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebServiceLogin">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/WebServiceLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserGroup">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/AddUserGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListRights">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/ListRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListUserGroups">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/ListUserGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListLicenseProfiles">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/ListLicenseProfiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListLicenseProfilesAsString">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/ListLicenseProfilesAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListUsers">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/ListUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListReports">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/ListReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRights">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRightsReturnString">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetRightsReturnString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlocklistOfRight">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetBlocklistOfRight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRight">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/DeleteRight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/SendEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAdmin">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/AddNewAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdminInfo">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateAdminInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdminPwd">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateAdminPwd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackagerParams">
+      <soap:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetPackagerParams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="HaihaisoftLicenseServiceSoap12" type="tns:HaihaisoftLicenseServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UserLogin">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UserLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserExists">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/CheckUserExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PEnhancedVFile">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/PEnhancedVFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLoginBySQuestion">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UserLoginBySQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetails">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetUserDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDetailsByUserID">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetUserDetailsByUserID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetails">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetReportDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevokeEndUserLicense">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/RevokeEndUserLicense" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserIsRevoked">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/CheckUserIsRevoked" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserIsRevokedByLicenseProfileID">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/CheckUserIsRevokedByLicenseProfileID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserAllBind">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/DeleteUserAllBind" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLicenseRemoteToTableWithVersion">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/getLicenseRemoteToTableWithVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLicenseRemoteToTableWithVersionWithMac">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/getLicenseRemoteToTableWithVersionWithMac" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLicenseForHHMeet">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/getLicenseForHHMeet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseProfileDetails">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetLicenseProfileDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseProfileIDByEncryptID">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetLicenseProfileIDByEncryptID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLicenseProfile">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/DeleteLicenseProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewUser">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/AddNewUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPassword">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateUserPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserRevokeSeedIDs">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateUserRevokeSeedIDs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserGroup">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateUserGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroupDetails">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetUserGroupDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserGroup">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/DeleteUserGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLicenseProfile">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateLicenseProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserAddMoney">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UserAddMoney" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserAddMoneyByUserName">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UserAddMoneyByUserName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRight">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateRight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRightWithDisableVirtualMachine">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateRightWithDisableVirtualMachine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRightWithPrintCount">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateRightWithPrintCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLicenseProfile">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/AddLicenseProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLicenseProfileToGroup">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/AddLicenseProfileToGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLicenseProfilesFromGroup">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/RemoveLicenseProfilesFromGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRight">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/AddRight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRightToLicenseProfile">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/AddRightToLicenseProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRightsFromLicenseProfile">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/RemoveRightsFromLicenseProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="aLogin">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/aLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="aLogin2">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/aLogin2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebServiceLogin">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/WebServiceLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserGroup">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/AddUserGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListRights">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/ListRights" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListUserGroups">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/ListUserGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListLicenseProfiles">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/ListLicenseProfiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListLicenseProfilesAsString">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/ListLicenseProfilesAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListUsers">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/ListUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListReports">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/ListReports" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRights">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetRights" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRightsReturnString">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetRightsReturnString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlocklistOfRight">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetBlocklistOfRight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRight">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/DeleteRight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/SendEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAdmin">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/AddNewAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdminInfo">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateAdminInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdminPwd">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/UpdateAdminPwd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackagerParams">
+      <soap12:operation soapAction="http://tempuri.org/ASPNET.StarterKit.Commerce/HaihaisoftLicenseService/GetPackagerParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HaihaisoftLicenseService">
+    <wsdl:port name="HaihaisoftLicenseServiceSoap" binding="tns:HaihaisoftLicenseServiceSoap">
+      <soap:address location="https://4.drm-x.cn/haihaisoftlicenseservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="HaihaisoftLicenseServiceSoap12" binding="tns:HaihaisoftLicenseServiceSoap12">
+      <soap12:address location="https://4.drm-x.cn/haihaisoftlicenseservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
