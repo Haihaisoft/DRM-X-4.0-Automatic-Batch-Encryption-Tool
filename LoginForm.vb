@@ -1,8 +1,11 @@
-﻿Imports System.ServiceModel
+' Haihaisoft Open Source DRM Provider: https://www.haihaisoft.com
+' DRM-X Content Protection Platform: https://www.drm-x.com
+' Project Page: https://www.drm-x.com/DRM-X-4.0-Automatic-Batch-Encryption-Tool.aspx
+
+Imports System.ServiceModel
 Imports System.Data.SQLite
 Public Class LoginForm
     Inherits System.Windows.Forms.Form
-    ' 控件声明
 
     Private lblServer As New Label With {
         .Text = "DRM-X 4.0 Server:",
@@ -13,7 +16,7 @@ Public Class LoginForm
         .Text = "International",
         .Location = New Point(190, 25),
         .Width = 115,
-        .Checked = True  '默认选择
+        .Checked = True
     }
 
     Private rbChina As New RadioButton With {
@@ -31,7 +34,7 @@ Public Class LoginForm
     Private txtAdminEmail As New TextBox With {
         .Location = New Point(190, 63),
         .Width = 215,
-        .Text = "" '默认Email，方便测试
+        .Text = "" 
     }
 
     Private lblAuthCode As New Label With {
@@ -45,12 +48,12 @@ Public Class LoginForm
         .Width = 215,
         .UseSystemPasswordChar = True,
         .PasswordChar = "*"c,
-        .Text = "" '默认密码，方便测试
+        .Text = "" 
     }
 
     Private chkRememberMe As New CheckBox With {
         .Text = If(rbInternational.Checked, "Remember Me", "记住我"),
-        .Location = New Point(90, 145), ' 调整位置以适配现有布局
+        .Location = New Point(90, 145), 
         .Width = 120
     }
 
@@ -65,7 +68,6 @@ Public Class LoginForm
         .LinkBehavior = LinkBehavior.NeverUnderline
     }
 
-    ' 修改登录按钮尺寸并添加新按钮
     Private btnLogin As New Button With {
         .Text = "Sign In",
         .Location = New Point(80, 180),
@@ -83,9 +85,9 @@ Public Class LoginForm
 
     Public Sub New()
         InitializeForm()
-        Me.AutoScaleMode = AutoScaleMode.Dpi ' 设置DPI自动缩放
-        Me.Font = New Font("微软雅黑", 10) ' 使用清晰字体
-        LoadLoginInfo() ' 新增：加载保存的信息
+        Me.AutoScaleMode = AutoScaleMode.Dpi 
+        Me.Font = New Font("微软雅黑", 10) 
+        LoadLoginInfo() 
     End Sub
 
     Private Sub InitializeForm()
