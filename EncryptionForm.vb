@@ -1,4 +1,8 @@
-﻿Imports System.IO
+' Haihaisoft Open Source DRM Provider: https://www.haihaisoft.com
+' DRM-X Content Protection Platform: https://www.drm-x.com
+' Project Page: https://www.drm-x.com/DRM-X-4.0-Automatic-Batch-Encryption-Tool.aspx
+
+Imports System.IO
 Imports System.Threading
 Imports System.Runtime.InteropServices
 Imports System.Collections.Concurrent
