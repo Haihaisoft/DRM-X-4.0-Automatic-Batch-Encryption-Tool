@@ -1,4 +1,8 @@
-﻿Imports System.Runtime.CompilerServices
+' Haihaisoft Open Source DRM Provider: https://www.haihaisoft.com
+' DRM-X Content Protection Platform: https://www.drm-x.com
+' Project Page: https://www.drm-x.com/DRM-X-4.0-Automatic-Batch-Encryption-Tool.aspx
+
+Imports System.Runtime.CompilerServices
 Imports System.Diagnostics
 Imports System.Threading
 Imports System.Threading.Tasks
