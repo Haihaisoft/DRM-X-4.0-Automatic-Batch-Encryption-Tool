@@ -1,4 +1,4 @@
-' Haihaisoft Open Source DRM Provider: https://www.haihaisoft.com
+﻿' Haihaisoft Open Source DRM Provider: https://www.haihaisoft.com
 ' DRM-X Content Protection Platform: https://www.drm-x.com
 ' Project Page: https://www.drm-x.com/DRM-X-4.0-Automatic-Batch-Encryption-Tool.aspx
 
@@ -98,6 +98,8 @@ Namespace DRMX4.EncryptionTool
 
         Private pdfConversionSemaphore As New SemaphoreSlim(1, 1) ' 同时只允许一个PDF转换
 
+        Private rightsID As String
+        Private cmbRights As ComboBox
 
         '根据所选择的服务器，使用不同的接口地址
         Private Function CreateServiceClient() As Object
@@ -169,18 +171,18 @@ Namespace DRMX4.EncryptionTool
 
         Private Sub InitializeManualTab(container As Control)
             ' 输入输出目录
-            inputPanel = CreateFilePanel("Input Directory:", "Browse", 20, "Input")
+            inputPanel = CreateFilePanel("Input Directory:", "Browse", 10, "Input")
             manualInputTextBox = CType(inputPanel.Controls.OfType(Of TextBox)().First(), TextBox)
 
 
-            outputPanel = CreateFilePanel("Output Directory:", "Browse", 60, "Output")
+            outputPanel = CreateFilePanel("Output Directory:", "Browse", 50, "Output")
             manualOutputTextBox = CType(outputPanel.Controls.OfType(Of TextBox)().First(), TextBox)
 
             ' 许可证模板选择
             licensePanel = New Panel With {
             .Height = 40,
-            .Top = 110,
-            .Width = 470
+            .Top = 95,
+            .Width = 500
         }
             licensePanel.Controls.Add(New Label With {
             .Text = "License Profile:",
@@ -190,7 +192,7 @@ Namespace DRMX4.EncryptionTool
         })
             cmbProfile = New ComboBox With {
             .Left = 150,
-            .Width = 300,
+            .Width = 350,
             .DropDownStyle = ComboBoxStyle.DropDownList
         }
             licensePanel.Controls.Add(cmbProfile)
@@ -241,10 +243,8 @@ Namespace DRMX4.EncryptionTool
 
             '------------------------------
 
-
-
             ' 选项面板
-            Dim optionsPanel As New Panel With {.Height = 40, .Top = 140, .Width = 450}
+            Dim optionsPanel As New Panel With {.Height = 40, .Top = 130, .Width = 450}
 
             createFolderCheckBox = New CheckBox With {
                 .Text = "Create folder in output dir",
@@ -266,20 +266,20 @@ Namespace DRMX4.EncryptionTool
             ' Start按钮
             btnStart = New Button With {
                 .Text = "Start",
-                .Width = 100,
-                .Top = 450,
-                .Left = 30,
-                .Height = 50,
+                .Width = 130,
+                .Top = 465,
+                .Left = 20,
+                .Height = 35,
                 .Enabled = True
             }
 
             ' Stop按钮
             btnStop = New Button With {
                 .Text = "Stop",
-                .Width = 100,
-                .Top = 450,
-                .Left = 150,
-                .Height = 50,
+                .Width = 130,
+                .Top = 465,
+                .Left = 180,
+                .Height = 35,
                 .Enabled = False
             }
 
@@ -290,9 +290,9 @@ Namespace DRMX4.EncryptionTool
             manualFileListView = New ListView With {
                 .View = View.Details,
                 .Top = 180,
-                .Height = 260,
+                .Height = 280,
                 .Anchor = AnchorStyles.Left Or AnchorStyles.Top,
-                .Width = 870,
+                .Width = 880,
                 .FullRowSelect = True,
                 .GridLines = True,
                 .Scrollable = True
@@ -331,17 +331,17 @@ Namespace DRMX4.EncryptionTool
 
             If cmbProfile.SelectedItem Is Nothing Then
                 If _isInternational Then
-                    MessageBox.Show("Please select License Profile！")
+                    MessageBox.Show("Please select License Profile!")
                 Else
                     MessageBox.Show("请选择许可证模板!")
                 End If
+                isProcessing = False
                 Return
             Else
                 Dim key = cmbProfile.SelectedItem.ToString()
                 Dim id = profileDict(key)
                 profileID = id
             End If
-
 
             If isProcessing Then Return
             isProcessing = True
@@ -699,7 +699,7 @@ Namespace DRMX4.EncryptionTool
         Private Sub UpdateOutputPath(inputFile As String, outputFile As String)
             UpdateUI(Sub()
                          Dim fileName = Path.GetFileName(inputFile)
-                         Dim item = manualFileListView.Items.Cast(Of ListViewItem)().FirstOrDefault(Function(i) i.Text.Equals(fileName, StringComparison.OrdinalIgnoreCase))
+                         Dim item = manualFileListView.Items.Cast(Of ListViewItem)().FirstOrDefault(Function(i) i.Tag IsNot Nothing AndAlso i.Tag.ToString().Equals(inputFile, StringComparison.OrdinalIgnoreCase))
                          If item IsNot Nothing Then
                              item.SubItems(2).Text = outputFile
                              manualFileListView.Refresh()
@@ -833,7 +833,14 @@ Namespace DRMX4.EncryptionTool
         Private Sub UpdateStatus(filePath As String, status As String, color As Color)
             UpdateUI(Sub()
                          Dim fileName = Path.GetFileName(filePath)
-                         Dim item = manualFileListView.Items.Cast(Of ListViewItem)().FirstOrDefault(Function(i) i.Text.Equals(fileName, StringComparison.OrdinalIgnoreCase))
+                         ' 先尝试通过文件路径查找项
+                         Dim item = manualFileListView.Items.Cast(Of ListViewItem)().FirstOrDefault(Function(i) i.SubItems(1).Text.Equals(filePath, StringComparison.OrdinalIgnoreCase))
+                         
+                         ' 如果找不到，再尝试通过文件名查找
+                         If item Is Nothing Then
+                             item = manualFileListView.Items.Cast(Of ListViewItem)().FirstOrDefault(Function(i) i.Text.Equals(fileName, StringComparison.OrdinalIgnoreCase))
+                         End If
+                         
                          If item IsNot Nothing Then
                              If item.SubItems(4).Text.StartsWith("Error") Then Return
                              If item.SubItems(4).Text.StartsWith("Failed") AndAlso color <> Color.Orange Then Return
@@ -851,8 +858,15 @@ Namespace DRMX4.EncryptionTool
                 manualFileListView.BeginInvoke(Sub() UpdateFileStatus(filePath, status, color))
             Else
                 Dim fileName = Path.GetFileName(filePath)
-                'Dim item = manualFileListView.Items.Cast(Of ListViewItem).FirstOrDefault(Function(i) i.Text = fileName)
-                Dim item = manualFileListView.Items.Cast(Of ListViewItem)().FirstOrDefault(Function(i) i.Text.Equals(fileName, StringComparison.OrdinalIgnoreCase))
+                
+                ' 先尝试通过文件路径查找项
+                Dim item = manualFileListView.Items.Cast(Of ListViewItem)().FirstOrDefault(Function(i) i.SubItems(1).Text.Equals(filePath, StringComparison.OrdinalIgnoreCase))
+                
+                ' 如果找不到，再尝试通过文件名查找
+                If item Is Nothing Then
+                    item = manualFileListView.Items.Cast(Of ListViewItem)().FirstOrDefault(Function(i) i.Text.Equals(fileName, StringComparison.OrdinalIgnoreCase))
+                End If
+                
                 If item IsNot Nothing Then
                     item.SubItems(4).Text = status
                     item.ForeColor = color
@@ -997,10 +1011,33 @@ Namespace DRMX4.EncryptionTool
 
                              Dim files = Directory.EnumerateFiles(directoryPath, "*.*", SearchOption.AllDirectories).Where(Function(f) allowedExtensions.Contains(Path.GetExtension(f))).OrderBy(Function(f) f, New NaturalFileComparer()).ToList()
 
+                             ' 用于跟踪文件名出现次数的字典
+                             Dim fileNameCount As New Dictionary(Of String, Integer)(StringComparer.OrdinalIgnoreCase)
+                             
+                             ' 第一遍：统计每个文件名出现的次数
+                             For Each filePath In files
+                                 Dim fileName = Path.GetFileName(filePath)
+                                 If fileNameCount.ContainsKey(fileName) Then
+                                     fileNameCount(fileName) += 1
+                                 Else
+                                     fileNameCount.Add(fileName, 1)
+                                 End If
+                             Next
+                             
+                             ' 第二遍：添加文件到列表视图
                              For Each filePath In files
                                  Try
                                      Dim fileInfo = New FileInfo(filePath)
-                                     Dim item As New ListViewItem(Path.GetFileName(filePath))
+                                     Dim fileName = Path.GetFileName(filePath)
+                                     Dim displayName = fileName
+                                     
+                                     ' 如果文件名重复，添加文件夹信息以区分
+                                     If fileNameCount(fileName) > 1 Then
+                                         Dim folderName = Path.GetFileName(Path.GetDirectoryName(filePath))
+                                         displayName = $"{fileName} ({folderName})"
+                                     End If
+                                     
+                                     Dim item As New ListViewItem(displayName)
 
                                      item.SubItems.Add(filePath)
                                      Dim outputPath = "......"
@@ -1122,17 +1159,70 @@ Namespace DRMX4.EncryptionTool
         ' 自动加密选项卡
         Private Sub InitializeAutoTab(container As Control)
             ' 自动加密选项卡初始化时保留控件引用
-            AutoInputPanel = CreateFilePanel("Scan Directory:", "Browse", 20, "Inout")
+            AutoInputPanel = CreateFilePanel("Scan Directory:", "Browse", 10, "Inout")
             autoInputTextBox = CType(AutoInputPanel.Controls.OfType(Of TextBox)().First(), TextBox)
 
-            AutoOutputPanel = CreateFilePanel("Output Directory:", "Browse", 60, "Output")
+            AutoOutputPanel = CreateFilePanel("Output Directory:", "Browse", 50, "Output")
             autoOutputTextBox = CType(AutoOutputPanel.Controls.OfType(Of TextBox)().First(), TextBox)
+
+            ' 添加权限选择面板
+            Dim rightsPanel As New Panel With {
+                .Height = 35,
+                .Top = 95,
+                .Width = 500
+            }
+
+            rightsPanel.Controls.Add(New Label With {
+                .Text = If(_isInternational, "Select Rights:", "选择权限:"),
+                .Left = 20,
+                .Top = 2,
+                .Width = 130
+            })
+
+            cmbRights = New ComboBox With {
+                .Left = 150,
+                .Width = 350,
+                .DropDownStyle = ComboBoxStyle.DropDownList
+            }
+            rightsPanel.Controls.Add(cmbRights)
+
+            ' 加载权限列表
+            Using drmClient = CreateServiceClient()
+                Try
+                    Dim result As String = drmClient.ListRightsAsString(_adminEmail, _authString, -1)
+
+                    If Not String.IsNullOrEmpty(result) Then
+                        Dim allEntries = result.Split(New String() {";;"}, StringSplitOptions.RemoveEmptyEntries)
+
+                        For Each entry In allEntries
+                            Dim parts = entry.Split(New String() {"||"}, StringSplitOptions.None)
+
+                            If parts.Length >= 2 Then
+                                cmbRights.Items.Add($"{parts(0)} | {parts(1)}")
+                            End If
+                        Next
+
+                        If cmbRights.Items.Count > 0 Then
+                            cmbRights.SelectedIndex = 0
+                            Dim selectedItem = cmbRights.SelectedItem.ToString()
+                            rightsID = selectedItem.Split("|"c)(0).Trim()
+                        End If
+
+                    End If
+
+                Catch ex As Exception
+                    MessageBox.Show(If(_isInternational,
+                                    "Failed to load rights list: " & ex.Message,
+                                    "加载权限列表失败: " & ex.Message))
+                End Try
+            End Using
+            AddHandler cmbRights.SelectedIndexChanged, AddressOf cmbRights_SelectedIndexChanged
 
             ' 控制按钮
             btnAutoStart = New Button With {
                 .Text = "Start Scanning",
                 .Left = 20,
-                .Top = 100,
+                .Top = 465,
                 .Width = 130,
                 .Height = 35,
                 .Enabled = True}
@@ -1140,7 +1230,7 @@ Namespace DRMX4.EncryptionTool
             btnAutoStop = New Button With {
                 .Text = "Stop Scanning",
                 .Left = 180,
-                .Top = 100,
+                .Top = 465,
                 .Width = 130,
                 .Height = 35,
                 .Enabled = False}
@@ -1149,7 +1239,7 @@ Namespace DRMX4.EncryptionTool
             btnClearList = New Button With {
             .Text = "Clear List", ' 默认中文，在SetLanguage中会根据语言切换
             .Left = 340,
-            .Top = 100,
+            .Top = 465,
             .Width = 130,
             .Height = 35,
             .Enabled = True}
@@ -1159,12 +1249,12 @@ Namespace DRMX4.EncryptionTool
             statusLabel = New Label With {
                 .Text = "Status:",
                 .Left = 20,
-                .Top = 145}
+                .Top = 140}
 
             lblStatus = New Label With {
-                .Left = 120,
-                .Top = 145,
-                .Width = 400,
+                .Left = 150,
+                .Top = 140,
+                .Width = 350,
                 .AutoSize = False,
                 .BorderStyle = BorderStyle.FixedSingle,
                 .BackColor = SystemColors.Info,
@@ -1176,7 +1266,7 @@ Namespace DRMX4.EncryptionTool
                 .View = View.Details,
                 .Top = 180,
                 .Width = 870,
-                .Height = 320,
+                .Height = 280,
                 .FullRowSelect = True,
                 .GridLines = True,
                 .Scrollable = True
@@ -1191,8 +1281,8 @@ Namespace DRMX4.EncryptionTool
 
             convertPDFCheckBoxAuto = New CheckBox With {
             .Text = "Convert PDF to HTML",
-            .Left = 500,
-            .Top = 108,
+            .Left = 550,
+            .Top = 97,
             .Width = 185
         }
 
@@ -1207,7 +1297,7 @@ Namespace DRMX4.EncryptionTool
             ' 添加双击事件
             AddHandler autoFileListView.DoubleClick, AddressOf OpenSelectedFile
 
-            container.Controls.AddRange({AutoInputPanel, AutoOutputPanel, btnAutoStart, btnAutoStop, btnClearList， convertPDFCheckBoxAuto, statusLabel, lblStatus, autoFileListView})
+            container.Controls.AddRange({AutoInputPanel, AutoOutputPanel, rightsPanel, btnAutoStart, btnAutoStop, btnClearList， convertPDFCheckBoxAuto, statusLabel, lblStatus, autoFileListView})
 
             ' 添加按钮事件
             AddHandler btnAutoStart.Click, AddressOf btnAutoStart_Click
@@ -1221,11 +1311,13 @@ Namespace DRMX4.EncryptionTool
         Private Async Sub btnAutoStart_Click(sender As Object, e As EventArgs)
 
             Try
+                ClearFileList()
                 ' 切换按钮状态
                 btnAutoStart.Enabled = False
                 btnAutoStop.Enabled = True
                 btnClearList.Enabled = False
                 convertPDFCheckBoxAuto.Enabled = False
+                cmbRights.Enabled = False
 
                 If _isInternational Then
                     lblStatus.Text = "Creating License Profile..."
@@ -1327,11 +1419,37 @@ Namespace DRMX4.EncryptionTool
                 Dim fileName = Path.GetFileName(filePath)
                 Dim fileSize = If(File.Exists(filePath), New FileInfo(filePath).Length, -1)
 
+                ' 检查是否存在相同路径的项
                 Dim existingItem = autoFileListView.Items.Cast(Of ListViewItem)().FirstOrDefault(
                     Function(i) i.SubItems(1).Text.Equals(filePath, StringComparison.OrdinalIgnoreCase)
                 )
+                
                 If existingItem Is Nothing Then
+                    ' 检查是否存在相同文件名但路径不同的项
+                    Dim sameNameItems = autoFileListView.Items.Cast(Of ListViewItem)().Where(
+                        Function(i) i.Text.Equals(fileName, StringComparison.OrdinalIgnoreCase) AndAlso 
+                               Not i.SubItems(1).Text.Equals(filePath, StringComparison.OrdinalIgnoreCase)
+                    ).ToList()
+                    
+                    ' 创建新项
                     Dim item = New ListViewItem(fileName)
+                    
+                    ' 如果存在同名文件，在显示名称中添加路径信息以区分
+                    If sameNameItems.Count > 0 Then
+                        ' 获取文件所在文件夹名称
+                        Dim folderName = Path.GetFileName(Path.GetDirectoryName(filePath))
+                        item.Text = $"{fileName} ({folderName})"
+                        
+                        ' 同时更新所有同名项的显示名称（如果它们还没有被修改过）
+                        For Each sameNameItem In sameNameItems
+                            If sameNameItem.Text = fileName Then ' 只修改那些还没有自定义显示名的项
+                                Dim itemPath = sameNameItem.SubItems(1).Text
+                                Dim itemFolderName = Path.GetFileName(Path.GetDirectoryName(itemPath))
+                                sameNameItem.Text = $"{fileName} ({itemFolderName})"
+                            End If
+                        Next
+                    End If
+                    
                     item.SubItems.Add(filePath)
                     item.SubItems.Add("...") '
                     'item.SubItems.Add(GetLicenseOutputPath(filePath).outputPath)
@@ -1947,7 +2065,7 @@ Namespace DRMX4.EncryptionTool
                     System.Threading.Thread.Sleep(retryDelay)
                 Catch ex As Exception
                     LogError($"数据库操作异常：{ex.Message}")
-                Throw
+                    Throw
                 End Try
             Next
         End Sub
@@ -2156,6 +2274,15 @@ Namespace DRMX4.EncryptionTool
                     Dim ResultID = drm.AddLicenseProfile(_adminEmail, _authString, folderName, productID, "False")
                     Dim ProfileID As Integer
 
+                    If Not String.IsNullOrEmpty(rightsID) Then
+                        Dim success = drm.AddRightToLicenseProfile(_adminEmail, _authString, rightsID, ResultID)
+
+                        If success <> "1" Then
+                            LogError("Failed to add right to license profile")
+                        End If
+                    End If
+
+
                     If Integer.TryParse(ResultID, ProfileID) Then
 
                         ' 插入文件记录到SQLite数据库
@@ -2292,7 +2419,14 @@ Namespace DRMX4.EncryptionTool
                              btnAutoStop.Enabled = False
                              convertPDFCheckBoxAuto.Enabled = True
                              btnClearList.Enabled = True
+                             cmbRights.Enabled = True
                          End Sub)
+            End If
+        End Sub
+        Private Sub cmbRights_SelectedIndexChanged(sender As Object, e As EventArgs)
+            If cmbRights.SelectedItem IsNot Nothing Then
+                Dim selectedItem = cmbRights.SelectedItem.ToString()
+                rightsID = selectedItem.Split("|"c)(0).Trim()
             End If
         End Sub
 
@@ -2378,7 +2512,7 @@ Namespace DRMX4.EncryptionTool
                 btnAutoStop.Text = "Stop Scanning"
                 btnClearList.Text = "Clear List"
 
-                statusLabel.Text = "Status"
+                statusLabel.Text = "Status:"
                 lblStatus.Text = "Ready"
             Else
                 Me.Text = "DRM-X 4.0 自动批量加密工具"
@@ -2416,7 +2550,7 @@ Namespace DRMX4.EncryptionTool
                 btnAutoStop.Text = "停止扫描"
                 btnClearList.Text = "清空列表"
 
-                statusLabel.Text = "状态"
+                statusLabel.Text = "当前状态："
                 lblStatus.Text = "已就绪"
             End If
         End Sub
